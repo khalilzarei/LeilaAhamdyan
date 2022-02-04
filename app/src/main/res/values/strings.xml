@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LeilaAhamdyan</string>
+    <string name="film_learning">فیلم های آموزشی</string>
+    <string name="slides">اسلاید ها</string>
+    <string name="resource">منابع درسی</string>
+    <string name="quiz">سوالات ارشد</string>
+</resources>
