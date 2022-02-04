@@ -1,10 +1,10 @@
 package com.google.leilaahamdyan;
 
-public class FilmItem {
+public class Item {
     private String title;
     private String link;
 
-    public FilmItem(String title, String link) {
+    public Item(String title, String link) {
         this.title = title;
         this.link  = link;
     }

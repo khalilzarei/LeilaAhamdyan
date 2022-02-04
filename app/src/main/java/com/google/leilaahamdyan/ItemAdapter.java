@@ -15,16 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
 
-    ArrayList<FilmItem> filmItems;
+    ArrayList<Item> items;
     private LayoutInflater mInflater;
     Activity activity;
 
-    public FilmAdapter(Activity activity, ArrayList<FilmItem> filmItems) {
+    public ItemAdapter(Activity activity, ArrayList<Item> items) {
         this.activity  = activity;
-        this.filmItems = filmItems;
+        this.items     = items;
         this.mInflater = LayoutInflater.from(activity);
     }
 
@@ -38,14 +38,14 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        FilmItem filmItem = filmItems.get(position);
-        holder.tvTitle.setText(filmItem.getTitle());
-        holder.tvLink.setText(filmItem.getLink());
+        Item item = items.get(position);
+        holder.tvTitle.setText(item.getTitle());
+        holder.tvLink.setText(item.getLink());
         holder.rootLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(activity, filmItem.getTitle() + "", Toast.LENGTH_SHORT).show();
-                String url = filmItem.getLink();
+                Toast.makeText(activity, item.getTitle() + "", Toast.LENGTH_SHORT).show();
+                String url = item.getLink();
                 if (!url.startsWith("http://") && !url.startsWith("https://"))
                     url = "http://" + url;
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -56,7 +56,7 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return filmItems.size();
+        return items.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

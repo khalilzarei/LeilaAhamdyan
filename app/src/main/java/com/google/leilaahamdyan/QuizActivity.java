@@ -18,7 +18,7 @@ import java.util.List;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnOne, btnTwo, btnThree, btnFour, btnNext;
+    TextView btnOne, btnTwo, btnThree, btnFour, btnNext;
     TextView tvQuestion, tvCorrectAnswer;
 
     QuestionItem currentQuestion;
@@ -60,7 +60,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         setQuestion(currentQuestion);
     }
 
-    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -82,8 +81,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void questionResult(Button btn_two) {
-        String currentAnswer = btn_two.getText().toString();
+    private void questionResult(TextView textView) {
+        String currentAnswer = textView.getText().toString();
         String ans           = "";
         switch (Integer.parseInt(currentQuestion.getAnswer())) {
             case 1:
